@@ -603,6 +603,8 @@
             transition: all var(--transition-base);
             border: 1px solid var(--gray-200); /* Light mode project card border */
             cursor: pointer;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
@@ -645,6 +647,9 @@
 
         .project-content {
             padding: var(--space-xl);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-content h3 {
@@ -690,6 +695,7 @@
         .project-links {
             display: flex;
             gap: var(--space-lg);
+            margin-top: auto;
         }
 
         .project-links a {
@@ -1624,8 +1630,7 @@
                     </div>
                     <div class="project-content">
                         <h3>AI Quiz Generator Chatbot</h3>
-                        <p>Designed and implemented an interactive AI chatbot that generates quizzes from user prompts and uploaded PDFs using LangChain agents and LangGraph memory. Built dynamic tool-loading support, session-based conversation tracking with encrypted cookies, and an inline quiz interface rendered directly inside the chat timeline using Streamlit. Integrated Mistral models for question generation and structured JSON parsing for automatic quiz creation and evaluation.
-                        </p>
+                        <p>Designed and implemented an interactive AI chatbot that generates quizzes from user prompts and uploaded PDFs using LangChain agents and LangGraph memory. Built dynamic tool-loading support, session-based conversation tracking with encrypted cookies, and an inline quiz interface rendered directly inside the chat timeline using Streamlit. Integrated Mistral models for question generation and structured JSON parsing for automatic quiz creation and evaluation.</p>
                         <div class="project-tags">
                             <span class="tag">LangChain</span>
                             <span class="tag">LangGraph</span>
@@ -1635,13 +1640,13 @@
                             <span class="tag">PDF Processing</span>
                             <span class="tag">Session Memory</span>
                         </div>
-                        </div>
                         <div class="project-links">
                             <a href="https://github.com/molioace/Quiz-AI-Generator-Chatbot" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
                             <a href="https://chatbot-9be8k3hrzzo7xdspk2v5y9.streamlit.app/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Demo</a>
                         </div>
                     </div>
                 </div>
+
                 <div class="project-card animate-on-scroll">
                     <div class="project-image">
                         <img src="Planto.PNG" alt="Planto Project Screenshot" loading="lazy">
@@ -1662,6 +1667,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="project-card animate-on-scroll">
                     <div class="project-image">
                         <img src="facerec.jpeg" alt="Real-time Face Recognition System Screenshot" loading="lazy">
@@ -1681,6 +1687,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="project-card animate-on-scroll">
                     <div class="project-image">
                         <img src="alexnet.jpeg" alt="Deep Learning Architecture Research Screenshot" loading="lazy">
