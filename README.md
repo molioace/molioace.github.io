@@ -91,7 +91,9 @@ Machine Learning Engineer | AI & LLM Systems
 <span style="color:#22c55e;">Education</span>      ....... B.Sc. Computer Engineering (GPA: 85.93% | 3.5/4.0)
                       Islamic University of Gaza (Sep 2020 - Jul 2025)
 
-<span style="color:#f59e0b;">Experience</span>     ....... Machine Learning Trainee, Areisto Software Company
+<span style="color:#f59e0b;">Experience</span>     ....... Backend AI Intern, FlyRank AI
+                      Jul 2026 - Present
+                      Machine Learning Trainee, Areisto Software Company
                       Apr 2025 - Jul 2025
 
 <span style="color:#22c55e;">Focus</span>          ....... Agentic AI, RAG Pipelines, LLM Systems
