@@ -103,10 +103,6 @@
               GitHub
             </a>
           </div>
-          <div class="hero-links">
-            <a href="https://www.linkedin.com/in/mohammed-sabbah-a7688a323/" class="text-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="Resume.pdf" class="text-link" target="_blank" rel="noopener noreferrer">Resume</a>
-          </div>
         </div>
       </div>
 
@@ -114,21 +110,18 @@
         <div class="code-card">
           <div class="code-card-head">
             <span class="code-dot"></span><span class="code-dot"></span><span class="code-dot"></span>
-            <span class="code-filename mono">quota_gate.py</span>
+            <span class="code-filename mono">~/whoami</span>
           </div>
-          <pre class="code-body mono"><code><span class="c-com"># gate every AI call behind quota</span>
-<span class="c-kw">async def</span> <span class="c-fn">call_ai_service</span>(tenant, tokens):
-    <span class="c-kw">if not</span> redis.pre_check(tenant.id):
-        <span class="c-kw">raise</span> QuotaExceeded()
+          <pre class="code-body mono"><code><span class="c-kw">$</span> whoami
+Mohammed Sabbah
+AI Engineer, backend-focused
 
-    result = <span class="c-kw">await</span> ai_provider.complete(...)
-    usage = weigh_tokens(result.usage)
+<span class="c-kw">$</span> stack
+Python, FastAPI, PostgreSQL, Redis
+LLMs, RAG, LangGraph, Docker
 
-    <span class="c-kw">if not</span> authoritative_check(tenant, usage):
-        <span class="c-kw">raise</span> QuotaExceeded()
-
-    record_usage(tenant.id, usage)
-    <span class="c-kw">return</span> result</code></pre>
+<span class="c-kw">$</span> status
+Open to junior AI engineering roles<span class="cursor">_</span></code></pre>
         </div>
       </div>
     </div>
@@ -295,7 +288,7 @@
           <div class="project-body">
             <h4>Real-Time Face Recognition System</h4>
             <div class="role mono">computer vision, backend</div>
-            <p>A real-time face recognition pipeline for live video, served through a FastAPI backend: YOLOv8 for detection, FaceNet for embeddings, and FAISS for millisecond-latency similarity search, with PostgreSQL storing embeddings and identity metadata at scale.</p>
+            <p>A real-time face recognition pipeline for live video, served through a FastAPI backend: YOLOv8 for detection, FaceNet for embeddings, and FAISS for efficient similarity search, with PostgreSQL storing embeddings and identity metadata.</p>
             <div class="tag-row">
               <span class="tag">FastAPI</span>
               <span class="tag">YOLOv8</span>
@@ -483,7 +476,7 @@
               <div class="org">FlyRank AI</div>
               <ul>
                 <li>Completed the Backend AI Engineering and AI Fluency tracks, reviewed and approved by the program supervisor on final review.</li>
-                <li>Built and shipped backend APIs that expose AI model outputs to product clients, improving integration reliability for core AI features.</li>
+                <li>Built and shipped backend APIs that expose AI model outputs to product clients.</li>
                 <li>Contributed to data ingestion and processing pipelines feeding ML models for real-time AI workloads.</li>
                 <li>Capstone project: MeterFlow, a usage-metering and billing engine, accepted on final review.</li>
               </ul>
@@ -511,7 +504,7 @@
     <div class="container">
       <div class="contact-inner">
         <div class="eyebrow reveal">Contact</div>
-        <h2 class="reveal">Have an AI problem worth solving?</h2>
+        <h2 class="reveal">Let's build something useful.</h2>
         <p class="reveal">I'm currently interested in junior AI engineering opportunities, internships, and practical AI projects.</p>
         <div class="contact-actions reveal">
           <a href="mailto:mohamedsabbahedu@gmail.com" class="btn btn-primary">
