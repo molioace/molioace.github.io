@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudyMate AI: RAG Study Assistant | Mohammed Sabbah</title>
+<meta name="description" content="Case study: StudyMate AI, a RAG-based study assistant with document chat, quizzes, flashcards, and summaries, built with LangGraph, LangChain, and ChromaDB.">
+<link rel="canonical" href="https://molioace.github.io/projects/studymate.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0D10'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='13' font-weight='700' fill='%233B82F6' text-anchor='middle'%3EMS%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.29 9.29 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.95.68 1.92 0 1.39-.01 2.51-.01 2.85 0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></symbol>
+  <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M20 12H4"/><path d="m11 5-7 7 7 7"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="m5 5 14 14"/><path d="m19 5-14 14"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v5h5"/></symbol>
+</svg>
+
+<nav class="nav" id="mainNav" aria-label="Main navigation">
+  <div class="container">
+    <a href="../index.html" class="nav-logo">MS<span>_</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html#home">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="../index.html#skills">Skills</a></li>
+      <li><a href="../index.html#education">Education</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+      <li class="cta-mobile"><a href="../index.html#contact" class="btn btn-primary">Let's Talk</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="nav-resume" href="../Resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open resume (PDF)">
+        <svg class="icon" width="17" height="17"><use href="#i-doc"/></svg>
+      </a>
+      <a href="../index.html#contact" class="btn btn-primary btn-sm nav-cta-desktop">Let's Talk</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <svg class="icon" id="menuIcon"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container breadcrumb">
+    <a href="../index.html#projects">
+      <svg class="icon" width="15" height="15"><use href="#i-arrow-left"/></svg>
+      All projects
+    </a>
+  </div>
+
+  <section class="case-hero">
+    <div class="container">
+      <div class="eyebrow">Generative AI Engineering</div>
+      <h1>StudyMate AI: RAG Study Assistant</h1>
+      <p>A document-grounded study assistant: chat with your own PDFs, slides, and notes, and generate quizzes, flashcards, and summaries from them, without the model making things up.</p>
+      <div class="case-meta">
+        <div><div class="k mono">role</div><div class="v">Solo, personal project</div></div>
+        <div><div class="k mono">stack</div><div class="v">LangGraph, LangChain, ChromaDB</div></div>
+        <div><div class="k mono">status</div><div class="v">Working prototype</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="case-image">
+      <img src="../assets/STUDYMATE.PNG" alt="StudyMate AI interface showing document upload and chat, quiz, flashcards, and summary tabs" loading="lazy">
+    </div>
+  </div>
+
+  <section class="case-section">
+    <div class="container">
+      <h2>Overview</h2>
+      <div class="case-body">
+        <p>StudyMate AI lets a user upload a document, a PDF, a Word file, a slide deck, or plain text, and interact with it directly: ask questions, request a summary, or generate a quiz or flashcards from its actual content. The point is that every answer is grounded in the uploaded material, not a generic response from the model's training data.</p>
+        <p>It grew out of an earlier project, a quiz-generating chatbot built with LangChain, LangGraph, and Mistral. That project's tool-discovery system, for automatically finding and running the right LangChain tool for a request, became the foundation for StudyMate's broader agent architecture.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section section-alt">
+    <div class="container">
+      <h2>Problem</h2>
+      <div class="case-body">
+        <p>Reading through long study material to find one answer, or to prepare a quiz to test yourself, is slow. Pointing a generic chatbot at the topic doesn't solve it either: it isn't grounded in what's actually in the specific document, so it can miss details or answer from the wrong context entirely.</p>
+        <p>The goal was a tool that treats the uploaded document as the source of truth, and gives the user several ways to engage with it (chat, quiz, flashcards, summary) instead of just a single Q&amp;A box.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <h2>Solution &amp; Architecture</h2>
+      <div class="case-body">
+        <p>Uploaded documents go through a processing step that extracts text regardless of source format, then chunking, embedding, and storage in a ChromaDB vector database. At query time, relevant chunks are retrieved and passed to the LLM alongside the user's question.</p>
+        <div class="diagram-frame">
+          <svg viewBox="0 0 640 92" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architecture diagram: Documents to Document Processing to Chunking to Embeddings to Vector Database to Retriever to LLM to Answer.">
+            <defs>
+              <marker id="b1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0 0 L10 5 L0 10 z" fill="var(--text-faint)"/>
+              </marker>
+            </defs>
+            <line x1="84" y1="45" x2="98" y2="45" stroke="var(--border-strong)" stroke-width="1.5" marker-end="url(#b1)"/>
+            <line x1="162" y1="45" x2="176" y2="45" stroke="var(--border-strong)" stroke-width="1.5" marker-end="url(#b1)"/>
+            <line x1="240" y1="45" x2="254" y2="45" stroke="var(--border-strong)" stroke-width="1.5" marker-end="url(#b1)"/>
+            <line x1="318" y1="45" x2="332" y2="45" stroke="var(--border-strong)" stroke-width="1.5" marker-end="url(#b1)"/>
+            <line x1="396" y1="45" x2="410" y2="45" stroke="var(--accent-border)" stroke-width="1.5" marker-end="url(#b1)"/>
+            <line x1="474" y1="45" x2="488" y2="45" stroke="var(--border-strong)" stroke-width="1.5" marker-end="url(#b1)"/>
+            <line x1="552" y1="45" x2="566" y2="45" stroke="var(--border-strong)" stroke-width="1.5" marker-end="url(#b1)"/>
+
+            <rect x="20" y="25" width="64" height="40" rx="6" fill="var(--bg)" stroke="var(--border-strong)"/>
+            <text x="52" y="49" text-anchor="middle" fill="var(--text)" font-family="var(--font-mono)" font-size="9.5">Docs</text>
+
+            <rect x="98" y="25" width="64" height="40" rx="6" fill="var(--bg)" stroke="var(--border-strong)"/>
+            <text x="130" y="43" text-anchor="middle" fill="var(--text)" font-family="var(--font-mono)" font-size="8.2">Doc</text>
+            <text x="130" y="55" text-anchor="middle" fill="var(--text)" font-family="var(--font-mono)" font-size="8.2">processing</text>
+
+            <rect x="176" y="25" width="64" height="40" rx="6" fill="var(--bg)" stroke="var(--border-strong)"/>
+            <text x="208" y="49" text-anchor="middle" fill="var(--text)" font-family="var(--font-mono)" font-size="8.5">Chunking</text>
+
+            <rect x="254" y="25" width="64" height="40" rx="6" fill="var(--bg)" stroke="var(--border-strong)"/>
+            <text x="286" y="49" text-anchor="middle" fill="var(--text)" font-family="var(--font-mono)" font-size="8">Embeddings</text>
+
+            <rect x="332" y="18" width="64" height="54" rx="6" fill="var(--bg)" stroke="var(--accent-border)"/>
+            <text x="364" y="41" text-anchor="middle" fill="var(--accent-hover)" font-family="var(--font-mono)" font-size="8">Vector</text>
+            <text x="364" y="52" text-anchor="middle" fill="var(--accent-hover)" font-family="var(--font-mono)" font-size="8">DB</text>
+            <text x="364" y="64" text-anchor="middle" fill="var(--text-faint)" font-family="var(--font-mono)" font-size="6.5">(ChromaDB)</text>
+
+            <rect x="410" y="25" width="64" height="40" rx="6" fill="var(--bg)" stroke="var(--border-strong)"/>
+            <text x="442" y="49" text-anchor="middle" fill="var(--text)" font-family="var(--font-mono)" font-size="8.2">Retriever</text>
+
+            <rect x="488" y="25" width="64" height="40" rx="6" fill="var(--bg)" stroke="var(--border-strong)"/>
+            <text x="520" y="49" text-anchor="middle" fill="var(--text)" font-family="var(--font-mono)" font-size="9.5">LLM</text>
+
+            <rect x="566" y="25" width="64" height="40" rx="6" fill="var(--bg)" stroke="var(--border-strong)"/>
+            <text x="598" y="49" text-anchor="middle" fill="var(--text)" font-family="var(--font-mono)" font-size="8.5">Answer</text>
+          </svg>
+        </div>
+        <p style="font-size:0.875rem; color: var(--text-faint);">For short documents, the pipeline can skip retrieval entirely and pass the full text to the LLM. See the routing decision below.</p>
+        <p>LangGraph routes between modes (chat, quiz generation, flashcards, and hierarchical summarization) based on document size and user intent, as a graph rather than nested conditional logic. LangChain provides the underlying RAG components: loaders, splitters, and retrieval chains.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section section-alt">
+    <div class="container">
+      <h2>Technology Stack</h2>
+      <div class="case-body">
+        <div class="stack-grid">
+          <div class="stack-item"><div class="name">LangGraph</div><div class="why">Orchestrates chat, quiz, flashcard, and summary modes as a graph.</div></div>
+          <div class="stack-item"><div class="name">LangChain</div><div class="why">Document loaders, chunking, and retrieval chain components.</div></div>
+          <div class="stack-item"><div class="name">ChromaDB</div><div class="why">Vector store for document chunk embeddings.</div></div>
+          <div class="stack-item"><div class="name">OpenAI API</div><div class="why">Embeddings and generation for chat, quizzes, and summaries.</div></div>
+          <div class="stack-item"><div class="name">Streamlit</div><div class="why">Interface for upload, chat, and the quiz / flashcard / summary views.</div></div>
+          <div class="stack-item"><div class="name">Python</div><div class="why">Core language for the pipeline and orchestration logic.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <h2>Engineering Decisions</h2>
+      <div class="case-body">
+        <p><strong>Size-aware, intent-aware routing.</strong> A LangGraph agent decides which tool to run based on both document size and what the user is asking for, not a fixed pipeline. For documents that fit comfortably in the model's context window, the pipeline sends the full text directly since retrieval only adds latency and can miss relevant context on short documents. Larger documents are chunked, embedded, and indexed in ChromaDB for retrieval-based Q&amp;A instead.</p>
+        <p><strong>Batch-and-interleave generation for full-document coverage.</strong> Generating a quiz from a long document by summarizing it first tends to lose detail. Instead, chunks are batched, questions are generated per batch, and the results are interleaved round-robin with two-stage de-duplication, so a quiz on a long document actually draws from the whole thing rather than just the first few chunks.</p>
+        <p><strong>Word-level similarity de-duplication.</strong> Character-level duplicate detection flags near-identical questions as false positives when they differ by a single word. A word-level similarity check filters actual near-duplicates without over-triggering on superficial differences.</p>
+        <p><strong>A services layer instead of global state.</strong> A DocumentManager and per-session contextvars decouple each tool from global state, so an uploaded document, chat history, and generated quizzes are correctly isolated per user session, with concurrent users never seeing each other's data.</p>
+        <p><strong>Hierarchical summarization for long documents.</strong> Rather than summarizing an entire long document in one pass, summaries are built up from section-level summaries, closer to how a person would actually condense a long document.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section section-alt">
+    <div class="container">
+      <h2>Challenges</h2>
+      <div class="case-body">
+        <p>The main challenge was that a single retrieval strategy doesn't serve every document well. Always retrieving can throw away useful surrounding context on a short document; always using full context is too expensive and slow on a long one. The size-aware routing decision exists specifically because a one-size-fits-all approach produced worse answers in practice.</p>
+        <p>Generating a complete quiz from a long document was its own problem. Summarizing first and generating questions from the summary is fast, but it silently drops content the summary left out. Batching and interleaving generation across the whole document, then de-duplicating at the word level rather than the character level, fixed both the coverage gap and the near-duplicate questions that came with it.</p>
+        <p>Handling multiple input formats (PDF, DOCX, PPTX, TXT) consistently before chunking also meant the document-processing step had to normalize very different source structures, slides especially, into plain text without losing the structure that makes a document understandable.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <h2>Results</h2>
+      <div class="case-body">
+        <p class="honest-note">StudyMate AI is a personal project and working prototype, not a deployed product with real users, so there are no usage metrics to report here.</p>
+        <ul>
+          <li>Tested end-to-end across PDF, DOCX, PPTX, and TXT inputs, from short handouts to full lecture decks.</li>
+          <li>Verified the size-aware routing correctly switches between full-context and vector retrieval based on document length.</li>
+          <li>Confirmed full-document coverage on long files with the batch-and-interleave generation strategy, instead of only drawing questions from the first few chunks.</li>
+          <li>Shipped both a 4-tab Streamlit UI (chat, quiz, flashcards, summary) and a lightweight CLI, backed by the same tools and agent core.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section section-alt">
+    <div class="container">
+      <h2>Lessons Learned</h2>
+      <div class="case-body">
+        <p>RAG isn't a single fixed pipeline. The right retrieval strategy depends on what's being retrieved from, and building the routing logic between full-context and vector retrieval taught me to treat "use RAG" as a design decision with a real trade-off, not a default to reach for on every document regardless of size.</p>
+        <p>Reusing the tool-discovery system from an earlier project also showed me the value of building the boring infrastructure well the first time. The part of the old chatbot that scaled into something new wasn't a specific feature, it was the plumbing that let new tools plug in cleanly.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-cta">
+    <div class="container">
+      <h2 style="font-size: 1.5rem; margin-bottom: 0;">Want to see how it's built?</h2>
+      <div class="btn-row">
+        <a href="https://github.com/molioace/StudyMate-AI" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          <svg class="icon" width="16" height="16"><use href="#i-github"/></svg>
+          View on GitHub
+        </a>
+        <a href="../index.html#projects" class="btn btn-outline">Back to projects</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-id">
+      <div class="name">Mohammed Sabbah</div>
+      <div class="role">AI Engineer</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/molioace" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/mohammed-sabbah-a7688a323/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:mohamedsabbahedu@gmail.com">Email</a>
+    </div>
+    <div class="footer-copy">&copy; <span id="currentYear"></span> Mohammed Sabbah. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

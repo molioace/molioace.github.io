@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MeterFlow: Usage Metering &amp; Billing Engine | Mohammed Sabbah</title>
+<meta name="description" content="Case study: MeterFlow, a multi-tenant usage-metering and billing backend with quota enforcement, two-layer idempotency, and Stripe billing, built with FastAPI, PostgreSQL, and Redis.">
+<link rel="canonical" href="https://molioace.github.io/projects/meterflow.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0D10'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='13' font-weight='700' fill='%233B82F6' text-anchor='middle'%3EMS%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.29 9.29 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.95.68 1.92 0 1.39-.01 2.51-.01 2.85 0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></symbol>
+  <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M20 12H4"/><path d="m11 5-7 7 7 7"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="m13 5 7 7-7 7"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="m5 5 14 14"/><path d="m19 5-14 14"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v5h5"/></symbol>
+</svg>
+
+<nav class="nav" id="mainNav" aria-label="Main navigation">
+  <div class="container">
+    <a href="../index.html" class="nav-logo">MS<span>_</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html#home">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="../index.html#skills">Skills</a></li>
+      <li><a href="../index.html#education">Education</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+      <li class="cta-mobile"><a href="../index.html#contact" class="btn btn-primary">Let's Talk</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="nav-resume" href="../Resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open resume (PDF)">
+        <svg class="icon" width="17" height="17"><use href="#i-doc"/></svg>
+      </a>
+      <a href="../index.html#contact" class="btn btn-primary btn-sm nav-cta-desktop">Let's Talk</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <svg class="icon" id="menuIcon"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container breadcrumb">
+    <a href="../index.html#projects">
+      <svg class="icon" width="15" height="15"><use href="#i-arrow-left"/></svg>
+      All projects
+    </a>
+  </div>
+
+  <section class="case-hero">
+    <div class="container">
+      <div class="eyebrow">Backend Engineering</div>
+      <h1>MeterFlow: Usage Metering &amp; Billing Engine</h1>
+      <p>A multi-tenant backend that tracks usage, enforces quotas, and bills customers accurately for an AI-powered SaaS product, with correctness under concurrency as the central design problem.</p>
+      <div class="case-meta">
+        <div><div class="k mono">role</div><div class="v">FlyRank AI internship, accepted capstone</div></div>
+        <div><div class="k mono">stack</div><div class="v">FastAPI, PostgreSQL, Redis, Stripe</div></div>
+        <div><div class="k mono">status</div><div class="v">Capstone accepted, Stripe test mode</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="case-image">
+      <img src="../assets/MeterFlow.PNG" alt="MeterFlow usage dashboard showing API call quota, AI token breakdown, and usage over time chart" loading="lazy">
+    </div>
+  </div>
+
+  <section class="case-section">
+    <div class="container">
+      <h2>Overview</h2>
+      <div class="case-body">
+        <p>MeterFlow was the accepted capstone project for FlyRank AI's Backend AI Engineering internship track. The brief was a specific engineering problem: how do you meter and bill for AI usage correctly, not just track it, but guarantee the numbers a customer is billed for match what they actually used, even when the network retries requests or two requests arrive at once.</p>
+        <p>It's structured as a FastAPI backend with a React/TypeScript dashboard on top. The dashboard (typed API client, TanStack Query, protected routing) is supporting context. The interesting engineering is entirely in the backend: authentication, a two-stage quota gate, idempotent usage recording, weighted usage pricing, and Stripe-backed billing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section section-alt">
+    <div class="container">
+      <h2>Problem</h2>
+      <div class="case-body">
+        <p>Usage-based billing sounds simple until you consider failure modes. A client's request to your API can time out and get retried by the client, a load balancer, or a flaky connection, and if each retry increments a usage counter, a customer gets billed for work they only requested once. At the same time, a metering system has to check remaining quota <em>before</em> letting an expensive AI call through, or you're paying for calls you can't bill for.</p>
+        <p>The problem MeterFlow solves: track usage per tenant, enforce per-plan quotas in real time, make sure duplicate requests never get recorded twice, and keep subscription state in sync with what Stripe has actually billed. Part of the work also meant auditing an existing codebase rather than starting from a blank slate, which turned up a real security bug (see Engineering Decisions).</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <h2>Architecture</h2>
+      <div class="case-body">
+        <p>Every request passes through authentication and a quota check before it's allowed to reach the AI service, so a tenant that's out of quota is rejected before any cost is incurred, not billed after the fact.</p>
+        <div class="diagram-frame">
+          <svg viewBox="0 0 420 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architecture diagram: Client to FastAPI to Authentication to Usage and quota checks, branching to Redis for idempotency and rate limits, then continuing to AI service, PostgreSQL, and Billing and subscription.">
+            <defs>
+              <marker id="a1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0 0 L10 5 L0 10 z" fill="var(--text-faint)"/>
+              </marker>
+            </defs>
+
+            <line x1="150" y1="34" x2="150" y2="58" stroke="var(--border-strong)" stroke-width="1.5" marker-end="url(#a1)"/>
+            <line x1="150" y1="92" x2="150" y2="116" stroke="var(--border-strong)" stroke-width="1.5" marker-end="url(#a1)"/>
+            <line x1="150" y1="150" x2="150" y2="174" stroke="var(--border-strong)" stroke-width="1.5" marker-end="url(#a1)"/>
+            <line x1="150" y1="208" x2="150" y2="232" stroke="var(--border-strong)" stroke-width="1.5" marker-end="url(#a1)"/>
+            <line x1="150" y1="266" x2="150" y2="290" stroke="var(--border-strong)" stroke-width="1.5" marker-end="url(#a1)"/>
+            <line x1="150" y1="324" x2="150" y2="348" stroke="var(--border-strong)" stroke-width="1.5" marker-end="url(#a1)"/>
+            <line x1="260" y1="197" x2="330" y2="197" stroke="var(--accent-border)" stroke-width="1.5" marker-end="url(#a1)"/>
+
+            <rect x="40" y="10" width="220" height="24" rx="6" fill="var(--bg)" stroke="var(--border-strong)"/>
+            <text x="150" y="26" text-anchor="middle" fill="var(--text)" font-family="var(--font-mono)" font-size="11">Client</text>
+
+            <rect x="40" y="68" width="220" height="24" rx="6" fill="var(--bg)" stroke="var(--border-strong)"/>
+            <text x="150" y="84" text-anchor="middle" fill="var(--text)" font-family="var(--font-mono)" font-size="11">FastAPI</text>
+
+            <rect x="40" y="126" width="220" height="24" rx="6" fill="var(--bg)" stroke="var(--border-strong)"/>
+            <text x="150" y="142" text-anchor="middle" fill="var(--text)" font-family="var(--font-mono)" font-size="11">Authentication</text>
+
+            <rect x="40" y="184" width="220" height="24" rx="6" fill="var(--bg)" stroke="var(--border-strong)"/>
+            <text x="150" y="200" text-anchor="middle" fill="var(--text)" font-family="var(--font-mono)" font-size="11">Quota gate (2-stage)</text>
+
+            <rect x="330" y="180" width="70" height="34" rx="6" fill="var(--bg)" stroke="var(--accent-border)"/>
+            <text x="365" y="194" text-anchor="middle" fill="var(--accent-hover)" font-family="var(--font-mono)" font-size="10">Redis</text>
+            <text x="365" y="206" text-anchor="middle" fill="var(--text-faint)" font-family="var(--font-mono)" font-size="6.8">idempotency</text>
+
+            <rect x="40" y="242" width="220" height="24" rx="6" fill="var(--bg)" stroke="var(--border-strong)"/>
+            <text x="150" y="258" text-anchor="middle" fill="var(--text)" font-family="var(--font-mono)" font-size="11">AI service</text>
+
+            <rect x="40" y="300" width="220" height="24" rx="6" fill="var(--bg)" stroke="var(--border-strong)"/>
+            <text x="150" y="316" text-anchor="middle" fill="var(--text)" font-family="var(--font-mono)" font-size="11">PostgreSQL</text>
+
+            <rect x="40" y="358" width="220" height="24" rx="6" fill="var(--bg)" stroke="var(--border-strong)"/>
+            <text x="150" y="374" text-anchor="middle" fill="var(--text)" font-family="var(--font-mono)" font-size="11">Billing / subscription</text>
+          </svg>
+        </div>
+        <p style="font-size:0.875rem; color: var(--text-faint);">Redis sits beside the request path as a fast idempotency and rate-limit check, not as a datastore of record. PostgreSQL, with a uniqueness constraint on usage records, is the correctness backstop.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section section-alt">
+    <div class="container">
+      <h2>Technology Stack</h2>
+      <div class="case-body">
+        <div class="stack-grid">
+          <div class="stack-item"><div class="name">FastAPI</div><div class="why">Async Python framework for the API and request-handling layer.</div></div>
+          <div class="stack-item"><div class="name">PostgreSQL</div><div class="why">Durable storage with a uniqueness constraint as the idempotency backstop.</div></div>
+          <div class="stack-item"><div class="name">Redis</div><div class="why">Fast-path idempotency and rate-limit checks on every request.</div></div>
+          <div class="stack-item"><div class="name">Stripe API</div><div class="why">Checkout, signature-verified webhooks, subscription sync.</div></div>
+          <div class="stack-item"><div class="name">Docker</div><div class="why">Consistent local environment for the API and its dependencies.</div></div>
+          <div class="stack-item"><div class="name">React / TypeScript</div><div class="why">Dashboard that consumes the FastAPI backend. Supporting context, not the focus.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <h2>Engineering Decisions</h2>
+      <div class="case-body">
+        <p><strong>Two-stage quota gate.</strong> A fast pre-check blocks an obviously over-quota request before it reaches the AI provider at all. A second, authoritative check runs against real token counts once the response comes back. Splitting it this way enforces plan boundaries exactly without wasting provider calls on requests that were always going to fail.</p>
+        <p><strong>Two-layer idempotency.</strong> Every usage-recording request carries an idempotency key. Redis is checked first, since it's fast and handles the overwhelming majority of duplicate retries. But Redis state can be lost or race under high concurrency, so a uniqueness constraint on the usage table in PostgreSQL is the actual guarantee: if two requests somehow get past the Redis check at the same instant, the database rejects the second insert.</p>
+        <p><strong>Weighted, per-token-type pricing.</strong> Input, cached-input, output, and reasoning tokens aren't priced the same, so raw token counts don't map to cost. Usage is converted into a weighted charge against the plan price. Verified against a concrete case: 40% utilization on a $29 plan correctly bills $11.60.</p>
+        <p><strong>Audit before building.</strong> The capstone started from an existing codebase rather than a blank one. Auditing it first, instead of building straight on top, surfaced a tenant-isolation bug (see Results) that would have been a real vulnerability in production.</p>
+        <p><strong>Signature-verified Stripe webhooks.</strong> Subscription state (Free vs. Pro) is never trusted from the client. It's driven entirely by Stripe webhook events, with signature verification, so the database can't drift out of sync with what Stripe has actually billed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section section-alt">
+    <div class="container">
+      <h2>Challenges</h2>
+      <div class="case-body">
+        <p>The main challenge was concurrency: proving that duplicate usage records genuinely can't happen, not just that they're unlikely to happen. That's what pushed the idempotency design to two layers instead of relying on Redis alone. Redis is fast but it isn't a durability guarantee.</p>
+        <p>A close second was the tenant-isolation bug found while auditing the existing codebase: cross-tenant requests were returning 200 OK when they should have been rejected. Finding a bug like that in someone else's code, understanding why it was wrong, and fixing it without breaking the tests that did pass took more care than writing the same logic from scratch would have.</p>
+        <p>Keeping billing state consistent without polling Stripe was a smaller, related problem. Webhook-driven sync solves it, but it meant handling out-of-order and duplicate webhook deliveries correctly too: the same idempotency thinking applied to a different part of the system.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <div class="container">
+      <h2>Results</h2>
+      <div class="case-body">
+        <p class="honest-note">MeterFlow was reviewed and accepted as the capstone project for FlyRank AI's Backend AI Engineering internship track. It's a capstone project, not production software serving paying customers, so there's no live usage data to report, but the correctness claims below were verified with tests, not just asserted.</p>
+        <ul>
+          <li>Found and fixed a tenant-isolation vulnerability: cross-tenant requests that previously returned 200 OK now correctly return 403 Forbidden, confirmed by automated tests.</li>
+          <li>Verified the idempotency guarantee by firing concurrent duplicate requests at the usage-recording endpoint and confirming exactly one record was ever persisted.</li>
+          <li>Verified the weighted-pricing calculation against a concrete case: 40% utilization on a $29 plan correctly bills $11.60.</li>
+          <li>Built and exercised a complete Stripe Checkout, webhook, and plan-sync flow in Stripe's test mode.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section section-alt">
+    <div class="container">
+      <h2>Lessons Learned</h2>
+      <div class="case-body">
+        <p>Correctness under concurrency has to be designed into the data layer, not bolted on afterward at the application level. A uniqueness constraint in Postgres did more real work here than any amount of in-memory checking could have. It's the kind of detail that's invisible until the one time it isn't, and then it's the only thing that matters.</p>
+        <p>Auditing an existing codebase before extending it is its own skill, separate from writing new code. The tenant-isolation bug wasn't something I would have introduced myself, but it was there to find, and finding it mattered more than any single feature I added on top.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-cta">
+    <div class="container">
+      <h2 style="font-size: 1.5rem; margin-bottom: 0;">Want to see how it's built?</h2>
+      <div class="btn-row">
+        <!-- TODO: replace with the real MeterFlow repo URL -->
+        <a href="https://github.com/molioace" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          <svg class="icon" width="16" height="16"><use href="#i-github"/></svg>
+          View on GitHub
+        </a>
+        <a href="../index.html#projects" class="btn btn-outline">Back to projects</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-id">
+      <div class="name">Mohammed Sabbah</div>
+      <div class="role">AI Engineer</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/molioace" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/mohammed-sabbah-a7688a323/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:mohamedsabbahedu@gmail.com">Email</a>
+    </div>
+    <div class="footer-copy">&copy; <span id="currentYear"></span> Mohammed Sabbah. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
