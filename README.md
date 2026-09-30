@@ -5,9 +5,9 @@ Source for [molioace.github.io](https://molioace.github.io) — a static portfol
 ## Structure
 
 ```
-index.html            Home page (hero, featured project, projects, about, skills, education, contact)
+index.html            Home page (hero, about, skills, projects, experience, education, contact)
 styles.css             Design system + all component styles
-script.js               Navigation, mobile menu, scroll-reveal
+script.js               Loading screen, particle background, cursor glow, nav/drawer, scroll-reveal, counters, contact form
 Resume.pdf              Downloadable resume
 assets/                 Screenshots and images
 projects/

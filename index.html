@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070b14">
 <title>Mohammed Sabbah | AI Engineer</title>
 <meta name="description" content="Mohammed Sabbah is an AI Engineer building practical AI applications and backend systems with Python, FastAPI, LLMs, and RAG. Computer Engineering graduate.">
 <link rel="canonical" href="https://molioace.github.io/">
@@ -16,11 +17,12 @@
 <meta name="twitter:title" content="Mohammed Sabbah | AI Engineer">
 <meta name="twitter:description" content="AI Engineer building practical AI applications and backend systems: Python, FastAPI, LLMs, RAG, and agentic workflows.">
 
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0D10'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='13' font-weight='700' fill='%233B82F6' text-anchor='middle'%3EMS%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23FF7A1A'/%3E%3Cstop offset='1' stop-color='%23FFB347'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='13' font-weight='700' fill='%230A0F1A' text-anchor='middle'%3EMS%3C/text%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>try{if(sessionStorage.getItem('ms-loaded'))document.documentElement.classList.add('no-loader')}catch(e){}</script>
 <link rel="stylesheet" href="styles.css">
 
 <script type="application/ld+json">
@@ -44,6 +46,13 @@
 <body>
 <a href="#main" class="skip-link">Skip to content</a>
 
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-mark"><div class="box"><span>MS</span></div><div class="orbit"></div></div>
+  <div class="loader-name">Mohammed Sabbah</div>
+  <div class="loader-bar"><i></i></div>
+  <div class="loader-log mono">initializing systems…</div>
+</div>
+
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
   <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.29 9.29 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.95.68 1.92 0 1.39-.01 2.51-.01 2.85 0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></symbol>
   <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M6.94 8.5H3.56V20.5H6.94V8.5Z"/><path d="M5.25 6.75a1.94 1.94 0 1 0 0-3.88 1.94 1.94 0 0 0 0 3.88Z"/><path d="M9.75 8.5h3.24v1.64h.05c.45-.85 1.56-1.75 3.2-1.75 3.42 0 4.06 2.25 4.06 5.17V20.5h-3.38v-5.72c0-1.36-.02-3.12-1.9-3.12-1.9 0-2.2 1.48-2.2 3.02v5.82H9.75V8.5Z"/></symbol>
@@ -55,99 +64,217 @@
   <symbol id="i-close" viewBox="0 0 24 24"><path d="m5 5 14 14"/><path d="m19 5-14 14"/></symbol>
   <symbol id="i-doc" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v5h5"/></symbol>
   <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+  <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></symbol>
+  <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M20 12H4"/><path d="m11 5-7 7 7 7"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+  <symbol id="i-grad" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></symbol>
+  <symbol id="i-server" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="8" rx="2"/><rect x="2" y="13" width="20" height="8" rx="2"/><path d="M6 7h.01M6 17h.01"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="m12 3 1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9Z"/><path d="M19 3v4M21 5h-4"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z"/></symbol>
 </svg>
 
-<nav class="nav" id="mainNav" aria-label="Main navigation">
-  <div class="container">
-    <a href="#home" class="nav-logo">MS<span>_</span></a>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<canvas class="particles" id="particles" aria-hidden="true"></canvas>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+<div class="page">
+<div class="blobs" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
+
+<header class="header" id="mainNav">
+  <nav class="container nav-bar" aria-label="Main navigation">
+    <a href="#home" class="nav-logo" aria-label="Mohammed Sabbah, home">
+      <span class="mark">MS</span>
+      <span class="logo-text">Mohammed Sabbah</span>
+    </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#home" class="active" aria-current="page">Home</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li class="cta-mobile"><a href="#contact" class="btn btn-primary">Let's Talk</a></li>
     </ul>
-    <div class="nav-right">
-      <a class="nav-resume" href="Resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open resume (PDF)">
-        <svg class="icon" width="17" height="17"><use href="#i-doc"/></svg>
-      </a>
-      <a href="#contact" class="btn btn-primary btn-sm nav-cta-desktop">Let's Talk</a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
-        <svg class="icon" id="menuIcon"><use href="#i-menu"/></svg>
-      </button>
+    <a href="#contact" class="btn btn-primary btn-sm nav-cta">Let's Talk</a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="drawer">
+      <svg class="icon" id="menuIcon"><use href="#i-menu"/></svg>
+    </button>
+  </nav>
+  <div class="drawer" id="drawer">
+    <div class="drawer-inner">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="Resume.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF)</a></li>
+        <li class="cta"><a href="#contact" class="btn btn-primary">Let's Talk</a></li>
+      </ul>
     </div>
   </div>
-</nav>
+</header>
 
 <main id="main">
 
+  <!-- ============ HERO ============ -->
   <section id="home" class="hero">
     <div class="container">
       <div class="hero-copy">
-        <div class="hero-identity">
-          <img src="assets/headshot.jpg" alt="Mohammed Sabbah" class="hero-avatar" width="88" height="88" loading="eager">
-          <div>
-            <div class="hero-name mono">Mohammed Sabbah</div>
-            <div class="eyebrow" style="margin-bottom:0;">AI Engineer</div>
-          </div>
+        <span class="status-chip hero-in"><span class="dot"></span>Open to junior AI engineering roles</span>
+        <h1 class="hero-in" data-delay="1">AI Engineer <span class="grad">Building AI systems for real-world problems</span></h1>
+        <p class="hero-lede hero-in" data-delay="2">I build practical AI applications and integrate AI into backend systems, turning documents, workflows, and usage data into software that actually runs, using <strong>Python, FastAPI, LLMs, and RAG</strong>.</p>
+        <p class="hero-meta hero-in" data-delay="2">mohamedsabbahedu@gmail.com · +970 595 716 347</p>
+        <div class="hero-actions hero-in" data-delay="3">
+          <a href="#projects" class="btn btn-primary">View Projects <svg class="icon" width="15" height="15"><use href="#i-arrow-right"/></svg></a>
+          <a href="Resume.pdf" class="btn btn-outline" target="_blank" rel="noopener noreferrer"><svg class="icon" width="16" height="16"><use href="#i-download"/></svg> Download Resume</a>
         </div>
-        <h1>Building AI systems for real-world problems.</h1>
-        <p class="hero-lede">I build practical AI applications and integrate AI into backend systems, turning documents, workflows, and usage data into software that actually runs, using <strong>Python, FastAPI, LLMs, and RAG</strong>.</p>
-        <div class="hero-actions">
-          <div class="btn-row">
-            <a href="#projects" class="btn btn-primary">View Projects</a>
-            <a href="https://github.com/molioace" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
-              <svg class="icon" width="16" height="16"><use href="#i-github"/></svg>
-              GitHub
-            </a>
+        <div class="hero-socials hero-in" data-delay="4">
+          <div class="socials">
+            <a href="https://github.com/molioace" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon"><use href="#i-github"/></svg></a>
+            <a href="https://www.linkedin.com/in/mohammed-sabbah-a7688a323/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon"><use href="#i-linkedin"/></svg></a>
+            <a href="mailto:mohamedsabbahedu@gmail.com" aria-label="Email"><svg class="icon"><use href="#i-mail"/></svg></a>
           </div>
         </div>
       </div>
 
-      <div class="hero-code reveal" aria-hidden="true">
-        <div class="code-card">
-          <div class="code-card-head">
-            <span class="code-dot"></span><span class="code-dot"></span><span class="code-dot"></span>
-            <span class="code-filename mono">~/whoami</span>
+      <div class="hero-visual hero-in" data-delay="2">
+        <div class="avatar">
+          <div class="avatar-glow"></div>
+          <div class="avatar-ring">
+            <div class="avatar-img"><img src="assets/headshot.jpg" alt="Mohammed Sabbah" width="640" height="640" loading="eager"></div>
           </div>
-          <pre class="code-body mono"><code><span class="c-kw">$</span> whoami
-Mohammed Sabbah
-AI Engineer, backend-focused
-
-<span class="c-kw">$</span> stack
-Python, FastAPI, PostgreSQL, Redis
-LLMs, RAG, LangGraph, Docker
-
-<span class="c-kw">$</span> status
-Open to junior AI engineering roles<span class="cursor">_</span></code></pre>
+          <span class="float-badge" style="top:5%; left:-5%; animation-delay:0s">Python</span>
+          <span class="float-badge" style="top:20%; right:-8%; animation-delay:.2s">FastAPI</span>
+          <span class="float-badge" style="bottom:35%; left:-10%; animation-delay:.4s">LLMs</span>
+          <span class="float-badge" style="bottom:15%; right:-5%; animation-delay:.6s">RAG</span>
+          <span class="float-badge" style="top:47%; right:-12%; animation-delay:.8s">PostgreSQL</span>
+          <span class="float-badge" style="bottom:47%; left:-2%; animation-delay:1s">Docker</span>
         </div>
       </div>
     </div>
+    <a href="#about" class="scroll-down" aria-label="Scroll to about"><svg class="icon" width="20" height="20"><use href="#i-arrow-down"/></svg></a>
   </section>
 
-  <section class="credibility">
-    <div class="container">
-      <span>Computer Engineering Graduate</span>
-      <span>AI / LLM Applications</span>
-      <span>Backend Engineering</span>
-      <span>RAG &amp; Agentic Workflows</span>
-      <span>Python / FastAPI</span>
-    </div>
-  </section>
-
-  <section class="featured" id="projects">
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="about">
     <div class="container">
       <div class="section-head reveal">
-        <div class="eyebrow">Featured Project</div>
-        <h2>MeterFlow: Usage Metering &amp; Billing Engine</h2>
-        <p>The accepted capstone project for a Backend AI Engineering internship. It shows how I think about correctness under concurrency, not just wiring up an API.</p>
+        <span class="pill">About Me</span>
+        <h2>Mohammed Sabbah</h2>
+        <p>Computer Engineering graduate, focused on AI engineering</p>
       </div>
 
-      <div class="featured-card reveal">
+      <div class="about-grid reveal">
+        <div class="about-copy">
+          <p>I graduated with a B.Sc. in Computer Engineering from the Islamic University of Gaza in 2025. Since then I've focused on building AI applications and the backend systems that support them: mainly LLMs, RAG, and agentic workflows on Python, with earlier work in machine learning and computer vision.</p>
+          <p>What I enjoy is the part after "the model works": taking an AI capability and turning it into something a real system can rely on. That means deciding where AI actually helps, handling retries and edge cases, and weighing accuracy, cost, and latency instead of just accuracy alone.</p>
+          <p>I'm not chasing the newest framework for its own sake. I'd rather ship a system with clear failure modes than a demo that only works once.</p>
+          <div class="info-box glass">
+            <p><b>Email:</b> mohamedsabbahedu@gmail.com</p>
+            <p><b>Phone:</b> +970 595 716 347</p>
+            <p><b>Languages:</b> Arabic (Native), English (Advanced)</p>
+          </div>
+          <div class="looking-for">
+            <div class="label mono">currently looking for</div>
+            <p>Junior AI Engineer, AI Engineering internship, or AI backend engineering roles: anywhere I can keep building AI systems that hold up under real use.</p>
+          </div>
+        </div>
+
+        <div class="highlights">
+          <div class="highlight glass">
+            <div class="icon-box"><svg class="icon"><use href="#i-cpu"/></svg></div>
+            <h3>LLMs &amp; RAG</h3>
+            <p>Document-grounded AI apps and agentic workflows with LangGraph and LangChain.</p>
+          </div>
+          <div class="highlight glass">
+            <div class="icon-box"><svg class="icon"><use href="#i-server"/></svg></div>
+            <h3>Backend Engineering</h3>
+            <p>FastAPI, PostgreSQL and Redis systems built around retries, quotas and failure modes.</p>
+          </div>
+          <div class="highlight glass">
+            <div class="icon-box"><svg class="icon"><use href="#i-grad"/></svg></div>
+            <h3>B.Sc. Computer Engineering</h3>
+            <p>Islamic University of Gaza, class of 2025, GPA 85.93%.</p>
+          </div>
+          <div class="highlight glass">
+            <div class="icon-box"><svg class="icon"><use href="#i-briefcase"/></svg></div>
+            <h3>FlyRank AI Intern</h3>
+            <p>Backend AI Engineering internship. Capstone MeterFlow accepted on final review.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat glass reveal"><div class="n"><span data-count="4">4</span></div><div class="l">Featured projects</div></div>
+        <div class="stat glass reveal" data-delay="1"><div class="n"><span data-count="2">2</span></div><div class="l">Industry roles</div></div>
+        <div class="stat glass reveal" data-delay="2"><div class="n"><span data-count="6">6</span></div><div class="l">Certifications</div></div>
+        <div class="stat glass reveal" data-delay="3"><div class="n"><span data-count="85.9" data-dec="1">85.9</span>%</div><div class="l">Degree GPA</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills" class="skills">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="pill">Skills</span>
+        <h2>What I actually work with</h2>
+        <p>No ratings, no percentages. Just the tools that show up across the projects below.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card glass reveal">
+          <div class="icon-box orange"><svg class="icon"><use href="#i-cpu"/></svg></div>
+          <h3>AI &amp; Machine Learning</h3><span class="code">SYS-A</span>
+          <ul>
+            <li>Python</li><li>Machine Learning</li><li>Deep Learning</li><li>PyTorch</li><li>TensorFlow / Keras</li><li>Scikit-learn</li><li>Computer Vision</li><li>Transfer Learning</li>
+          </ul>
+        </div>
+        <div class="skill-card glass reveal" data-delay="1">
+          <div class="icon-box orange"><svg class="icon"><use href="#i-sparkles"/></svg></div>
+          <h3>Generative AI</h3><span class="code">SYS-B</span>
+          <ul>
+            <li>LLM Applications</li><li>RAG</li><li>Embeddings</li><li>Vector Databases</li><li>Prompt Engineering</li><li>Agentic Workflows</li><li>LangChain / LangGraph</li><li>OpenAI API</li>
+          </ul>
+        </div>
+        <div class="skill-card glass reveal" data-delay="2">
+          <div class="icon-box orange"><svg class="icon"><use href="#i-server"/></svg></div>
+          <h3>Backend Engineering</h3><span class="code">SYS-C</span>
+          <ul>
+            <li>FastAPI</li><li>REST APIs</li><li>PostgreSQL</li><li>Redis</li><li>Authentication</li><li>API Design</li><li>Stripe API</li>
+          </ul>
+        </div>
+        <div class="skill-card glass reveal" data-delay="3">
+          <div class="icon-box orange"><svg class="icon"><use href="#i-wrench"/></svg></div>
+          <h3>Engineering Tools</h3><span class="code">SYS-D</span>
+          <ul>
+            <li>Git / GitHub</li><li>Docker</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="pill">Portfolio</span>
+        <h2>Featured Projects</h2>
+        <p>Real systems built with an emphasis on correctness, retrieval quality and clear failure modes</p>
+      </div>
+
+      <div class="featured-card glass reveal">
         <div class="featured-copy">
-          <p>MeterFlow is a multi-tenant backend for usage-based SaaS billing. It tracks per-plan API and AI-token usage, enforces quotas in real time, and guarantees <strong>exactly-once usage recording</strong> even when the same request is retried concurrently, a common failure mode in metered billing systems.</p>
+          <div class="featured-top"><span class="badge">Featured · P-01</span></div>
+          <h3>MeterFlow: Usage Metering &amp; Billing Engine</h3>
+          <p>The accepted capstone project for a Backend AI Engineering internship. MeterFlow is a multi-tenant backend for usage-based SaaS billing. It tracks per-plan API and AI-token usage, enforces quotas in real time, and guarantees <strong>exactly-once usage recording</strong> even when the same request is retried concurrently, a common failure mode in metered billing systems.</p>
 
           <div class="decision-list">
             <div class="decision">
@@ -165,24 +292,13 @@ Open to junior AI engineering roles<span class="cursor">_</span></code></pre>
           </div>
 
           <div class="tag-row">
-            <span class="tag">FastAPI</span>
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">Redis</span>
-            <span class="tag">Stripe API</span>
-            <span class="tag">Python</span>
-            <span class="tag">Docker</span>
+            <span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">Stripe API</span><span class="tag">Python</span><span class="tag">Docker</span>
           </div>
 
           <div class="link-row">
-            <a href="projects/meterflow.html" class="btn btn-primary">
-              Read the case study
-              <svg class="icon" width="15" height="15"><use href="#i-arrow-right"/></svg>
-            </a>
+            <a href="projects/meterflow.html" class="btn btn-primary btn-sm">Read the case study <svg class="icon" width="14" height="14"><use href="#i-arrow-right"/></svg></a>
             <!-- TODO: replace with the real MeterFlow repo URL -->
-            <a href="https://github.com/molioace" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
-              <svg class="icon" width="15" height="15"><use href="#i-github"/></svg>
-              Code
-            </a>
+            <a href="https://github.com/molioace" class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer"><svg class="icon" width="14" height="14"><use href="#i-github"/></svg> GitHub</a>
           </div>
         </div>
 
@@ -228,98 +344,78 @@ Open to junior AI engineering roles<span class="cursor">_</span></code></pre>
         </div>
       </div>
 
-      <div class="projects-intro reveal">
-        <h3 class="mono">More projects</h3>
-      </div>
-
       <div class="project-grid">
-        <article class="project-card reveal">
-          <div class="project-thumb">
+        <article class="project-card glass reveal">
+          <a class="project-thumb" href="projects/studymate.html" aria-label="StudyMate AI case study">
+            <span class="idx">P-02</span>
             <img src="assets/STUDYMATE.PNG" alt="StudyMate AI interface with chat, quiz, flashcards, and summary tabs" loading="lazy">
-          </div>
+            <span class="overlay"><span>Read case study</span></span>
+          </a>
           <div class="project-body">
-            <h4><a href="projects/studymate.html" style="color:inherit; text-decoration:none;">StudyMate AI</a></h4>
+            <h3><a href="projects/studymate.html">StudyMate AI</a></h3>
             <div class="role mono">RAG-based document Q&amp;A</div>
             <p>A document-grounded study assistant: chat, quiz, flashcard, and summarize any uploaded PDF, Word file, or slide deck. A LangGraph agent routes between tools based on document size and user intent, switching to retrieval only when a document is too large for full context.</p>
             <div class="tag-row">
-              <span class="tag">LangGraph</span>
-              <span class="tag">LangChain</span>
-              <span class="tag">ChromaDB</span>
-              <span class="tag">OpenAI API</span>
+              <span class="tag">LangGraph</span><span class="tag">LangChain</span><span class="tag">ChromaDB</span><span class="tag">OpenAI API</span>
             </div>
             <div class="link-row">
-              <a href="projects/studymate.html" class="text-link">Case study</a>
-              <a href="https://github.com/molioace/StudyMate-AI" class="text-link" target="_blank" rel="noopener noreferrer">
-                <svg class="icon" width="14" height="14"><use href="#i-github"/></svg> Code
-              </a>
+              <a href="projects/studymate.html" class="btn btn-primary btn-sm">Case study</a>
+              <a href="https://github.com/molioace/StudyMate-AI" class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer"><svg class="icon" width="14" height="14"><use href="#i-github"/></svg> GitHub</a>
             </div>
           </div>
         </article>
 
-        <article class="project-card reveal">
+        <article class="project-card glass reveal" data-delay="1">
           <div class="project-thumb contain">
+            <span class="idx">P-03</span>
             <img src="assets/Planto.PNG" alt="Planto mobile app analyzing a plant leaf photo for disease detection" loading="lazy">
           </div>
           <div class="project-body">
-            <h4>Planto: Plant Disease Detection</h4>
+            <h3>Planto: Plant Disease Detection</h3>
             <div class="role mono">computer vision, mobile inference</div>
             <p>Trained the plant-disease classification models, a general CNN plus plant-specific sub-models, for this team-built Flutter app. Handled preprocessing, transfer learning, evaluation, and TFLite deployment for on-device inference.</p>
             <div class="tag-row">
-              <span class="tag">TensorFlow</span>
-              <span class="tag">Transfer Learning</span>
-              <span class="tag">TFLite</span>
-              <span class="tag">Python</span>
+              <span class="tag">TensorFlow</span><span class="tag">Transfer Learning</span><span class="tag">TFLite</span><span class="tag">Python</span>
             </div>
             <div class="link-row">
-              <a href="https://github.com/Anas20022/planto/" class="text-link" target="_blank" rel="noopener noreferrer">
-                <svg class="icon" width="14" height="14"><use href="#i-github"/></svg> Code
-              </a>
-              <a href="https://drive.google.com/file/d/11CYVnk3eb7rnFTC6Q1ymUB2iM93VcrZe/view" class="text-link" target="_blank" rel="noopener noreferrer">
-                <svg class="icon" width="14" height="14"><use href="#i-external"/></svg> Demo
-              </a>
+              <a href="https://drive.google.com/file/d/11CYVnk3eb7rnFTC6Q1ymUB2iM93VcrZe/view" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer"><svg class="icon" width="14" height="14"><use href="#i-external"/></svg> Demo</a>
+              <a href="https://github.com/Anas20022/planto/" class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer"><svg class="icon" width="14" height="14"><use href="#i-github"/></svg> GitHub</a>
             </div>
           </div>
         </article>
 
-        <article class="project-card reveal">
+        <article class="project-card glass reveal">
           <div class="project-thumb">
+            <span class="idx">P-04</span>
             <img src="assets/facerec.jpeg" alt="Real-time face recognition system output with detection boxes" loading="lazy">
           </div>
           <div class="project-body">
-            <h4>Real-Time Face Recognition System</h4>
+            <h3>Real-Time Face Recognition System</h3>
             <div class="role mono">computer vision, backend</div>
             <p>A real-time face recognition pipeline for live video, served through a FastAPI backend: YOLOv8 for detection, FaceNet for embeddings, and FAISS for efficient similarity search, with PostgreSQL storing embeddings and identity metadata.</p>
             <div class="tag-row">
-              <span class="tag">FastAPI</span>
-              <span class="tag">YOLOv8</span>
-              <span class="tag">FAISS</span>
-              <span class="tag">PostgreSQL</span>
+              <span class="tag">FastAPI</span><span class="tag">YOLOv8</span><span class="tag">FAISS</span><span class="tag">PostgreSQL</span>
             </div>
             <div class="link-row">
-              <a href="https://github.com/molioace/FaceRecogentionSystem" class="text-link" target="_blank" rel="noopener noreferrer">
-                <svg class="icon" width="14" height="14"><use href="#i-github"/></svg> Code
-              </a>
+              <a href="https://github.com/molioace/FaceRecogentionSystem" class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer"><svg class="icon" width="14" height="14"><use href="#i-github"/></svg> GitHub</a>
             </div>
           </div>
         </article>
 
-        <article class="project-card reveal">
+        <article class="project-card glass reveal" data-delay="1">
           <div class="project-thumb">
+            <span class="idx">P-05</span>
             <img src="assets/alexnet.jpeg" alt="Deep learning architecture benchmarking visualization" loading="lazy">
           </div>
           <div class="project-body">
-            <h4>Deep Learning Architecture Research</h4>
+            <h3>Deep Learning Architecture Research</h3>
             <div class="role mono">ML research, benchmarking</div>
             <p>Implemented and benchmarked ResNet, U-Net, VGG, and AlexNet on classification and segmentation tasks, with systematic hyperparameter tuning across custom and benchmark datasets.</p>
             <div class="tag-row">
-              <span class="tag">ResNet</span>
-              <span class="tag">U-Net</span>
-              <span class="tag">Keras</span>
+              <span class="tag">ResNet</span><span class="tag">U-Net</span><span class="tag">Keras</span>
             </div>
             <div class="link-row">
-              <a href="https://github.com/molioace" class="text-link" target="_blank" rel="noopener noreferrer">
-                <svg class="icon" width="14" height="14"><use href="#i-github"/></svg> Code
-              </a>
+              <a href="https://github.com/molioace" class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer"><svg class="icon" width="14" height="14"><use href="#i-github"/></svg> GitHub</a>
             </div>
           </div>
         </article>
@@ -327,153 +423,27 @@ Open to junior AI engineering roles<span class="cursor">_</span></code></pre>
     </div>
   </section>
 
-  <section id="about" class="about section-alt">
-    <div class="container">
-      <img src="assets/headshot.jpg" alt="Portrait of Mohammed Sabbah" class="about-photo reveal" loading="lazy" width="640" height="640">
-      <div class="about-copy reveal">
-        <div class="section-head" style="margin-bottom: var(--sp-6);">
-          <div class="eyebrow">About</div>
-          <h2>Computer Engineering graduate, focused on AI engineering</h2>
-        </div>
-        <p>I graduated with a B.Sc. in Computer Engineering from the Islamic University of Gaza in 2025. Since then I've focused on building AI applications and the backend systems that support them: mainly LLMs, RAG, and agentic workflows on Python, with earlier work in machine learning and computer vision.</p>
-        <p>What I enjoy is the part after "the model works": taking an AI capability and turning it into something a real system can rely on. That means deciding where AI actually helps, handling retries and edge cases, and weighing accuracy, cost, and latency instead of just accuracy alone.</p>
-        <p>I'm not chasing the newest framework for its own sake. I'd rather ship a system with clear failure modes than a demo that only works once.</p>
-        <div class="looking-for">
-          <div class="label mono">currently looking for</div>
-          <p>Junior AI Engineer, AI Engineering internship, or AI backend engineering roles: anywhere I can keep building AI systems that hold up under real use.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills" class="skills">
-    <div class="container">
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience" class="experience">
+    <div class="narrow">
       <div class="section-head reveal">
-        <div class="eyebrow">Skills</div>
-        <h2>What I actually work with</h2>
-        <p>No ratings, no percentages. Just the tools that show up across the projects above.</p>
+        <span class="pill">Experience</span>
+        <h2>Professional Journey</h2>
+        <p>Internship and professional training experience</p>
       </div>
-      <div class="skills-grid">
-        <div class="skill-card reveal">
-          <h4>AI &amp; Machine Learning</h4>
-          <ul>
-            <li>Python</li>
-            <li>Machine Learning</li>
-            <li>Deep Learning</li>
-            <li>PyTorch</li>
-            <li>TensorFlow / Keras</li>
-            <li>Scikit-learn</li>
-            <li>Computer Vision</li>
-            <li>Transfer Learning</li>
-          </ul>
-        </div>
-        <div class="skill-card reveal">
-          <h4>Generative AI</h4>
-          <ul>
-            <li>LLM Applications</li>
-            <li>RAG</li>
-            <li>Embeddings</li>
-            <li>Vector Databases</li>
-            <li>Prompt Engineering</li>
-            <li>Agentic Workflows</li>
-            <li>LangChain / LangGraph</li>
-            <li>OpenAI API</li>
-          </ul>
-        </div>
-        <div class="skill-card reveal">
-          <h4>Backend Engineering</h4>
-          <ul>
-            <li>FastAPI</li>
-            <li>REST APIs</li>
-            <li>PostgreSQL</li>
-            <li>Redis</li>
-            <li>Authentication</li>
-            <li>API Design</li>
-            <li>Stripe API</li>
-          </ul>
-        </div>
-        <div class="skill-card reveal">
-          <h4>Engineering Tools</h4>
-          <ul>
-            <li>Git / GitHub</li>
-            <li>Docker</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section id="education" class="section-alt">
-    <div class="container">
-      <div class="section-head reveal">
-        <div class="eyebrow">Education &amp; Experience</div>
-        <h2>Background</h2>
-      </div>
-      <div class="split-grid">
-        <div class="reveal">
-          <h3 class="mono" style="font-size:1rem; color: var(--text-muted); margin-bottom: var(--sp-4);">Education</h3>
-          <div class="entry-list">
-            <div class="entry">
-              <div class="entry-top">
-                <h4>B.Sc. Computer Engineering</h4>
-                <span class="date">2020 – 2025</span>
+      <div class="timeline reveal" id="timeline">
+        <div class="timeline-list">
+          <div class="tl-item">
+            <div class="tl-dot"><svg class="icon"><use href="#i-briefcase"/></svg></div>
+            <div class="tl-card glass">
+              <div class="tl-head">
+                <div>
+                  <div class="tl-role"><h3>Backend AI Engineering Intern</h3><span class="kind">Internship</span></div>
+                  <p class="tl-org">FlyRank AI</p>
+                </div>
+                <span class="date-pill">Jul 2026 – Sep 2026</span>
               </div>
-              <div class="org">Islamic University of Gaza, Palestine</div>
-              <p style="color: var(--text-muted); font-size: 0.9375rem;">GPA: 85.93% (3.5 / 4.0)</p>
-            </div>
-          </div>
-
-          <h3 class="mono" style="font-size:1rem; color: var(--text-muted); margin: var(--sp-6) 0 var(--sp-4);">Certifications</h3>
-          <div class="cert-list">
-            <div class="cert-item">
-              <div>
-                <div class="name">DeepLearning.AI TensorFlow Developer</div>
-                <div class="provider">Coursera</div>
-              </div>
-            </div>
-            <div class="cert-item">
-              <div>
-                <div class="name">TensorFlow: Data and Deployment</div>
-                <div class="provider">Coursera</div>
-              </div>
-            </div>
-            <div class="cert-item">
-              <div>
-                <div class="name">Neural Networks and Deep Learning</div>
-                <div class="provider">Coursera</div>
-              </div>
-            </div>
-            <div class="cert-item">
-              <div>
-                <div class="name">Introduction to Computer Vision and Image Processing</div>
-                <div class="provider">Coursera</div>
-              </div>
-            </div>
-            <div class="cert-item">
-              <div>
-                <div class="name">Machine Learning Specialization</div>
-                <div class="provider">Coursera</div>
-              </div>
-            </div>
-            <div class="cert-item">
-              <div>
-                <div class="name">Advanced English Language</div>
-                <div class="provider">Cambridge Training College Britain</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="reveal">
-          <h3 class="mono" style="font-size:1rem; color: var(--text-muted); margin-bottom: var(--sp-4);">Experience</h3>
-          <div class="entry-list">
-            <div class="entry">
-              <div class="kind">Internship</div>
-              <div class="entry-top">
-                <h4>Backend AI Engineering Intern</h4>
-                <span class="date">Jul 2026 – Sep 2026</span>
-              </div>
-              <div class="org">FlyRank AI</div>
               <ul>
                 <li>Completed the Backend AI Engineering and AI Fluency tracks, reviewed and approved by the program supervisor on final review.</li>
                 <li>Built and shipped backend APIs that expose AI model outputs to product clients.</li>
@@ -481,13 +451,17 @@ Open to junior AI engineering roles<span class="cursor">_</span></code></pre>
                 <li>Capstone project: MeterFlow, a usage-metering and billing engine, accepted on final review.</li>
               </ul>
             </div>
-            <div class="entry">
-              <div class="kind">Training</div>
-              <div class="entry-top">
-                <h4>Machine Learning Trainee</h4>
-                <span class="date">Apr 2025 – Jul 2025</span>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"><svg class="icon"><use href="#i-briefcase"/></svg></div>
+            <div class="tl-card glass">
+              <div class="tl-head">
+                <div>
+                  <div class="tl-role"><h3>Machine Learning Trainee</h3><span class="kind">Training</span></div>
+                  <p class="tl-org">Areisto Software Company, Gaza, Palestine</p>
+                </div>
+                <span class="date-pill">Apr 2025 – Jul 2025</span>
               </div>
-              <div class="org">Areisto Software Company, Gaza, Palestine</div>
               <ul>
                 <li>Built end-to-end ML pipelines: preprocessing, training, evaluation, and deployment.</li>
                 <li>Worked within professional software development workflows, including code review.</li>
@@ -500,30 +474,77 @@ Open to junior AI engineering roles<span class="cursor">_</span></code></pre>
     </div>
   </section>
 
+  <!-- ============ EDUCATION ============ -->
+  <section id="education" class="education">
+    <div class="narrow">
+      <div class="section-head reveal">
+        <span class="pill">Education</span>
+        <h2>Academic Background</h2>
+        <p>Formal education and professional certifications</p>
+      </div>
+
+      <div class="edu-stack">
+        <div class="edu-card glass reveal">
+          <div class="icon-box orange"><svg class="icon"><use href="#i-grad"/></svg></div>
+          <div>
+            <h3>B.Sc. Computer Engineering</h3>
+            <p class="org">Islamic University of Gaza, Palestine</p>
+            <div class="meta"><span class="date-pill">2020 – 2025</span></div>
+            <p class="gpa">GPA: 85.93% (3.5 / 4.0)</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="cert-title reveal">Certifications</h3>
+      <div class="cert-grid">
+        <div class="cert-item glass reveal"><div class="icon-box"><svg class="icon"><use href="#i-award"/></svg></div><div><div class="name">DeepLearning.AI TensorFlow Developer</div><div class="provider">Coursera</div></div></div>
+        <div class="cert-item glass reveal" data-delay="1"><div class="icon-box"><svg class="icon"><use href="#i-award"/></svg></div><div><div class="name">TensorFlow: Data and Deployment</div><div class="provider">Coursera</div></div></div>
+        <div class="cert-item glass reveal"><div class="icon-box"><svg class="icon"><use href="#i-award"/></svg></div><div><div class="name">Neural Networks and Deep Learning</div><div class="provider">Coursera</div></div></div>
+        <div class="cert-item glass reveal" data-delay="1"><div class="icon-box"><svg class="icon"><use href="#i-award"/></svg></div><div><div class="name">Introduction to Computer Vision and Image Processing</div><div class="provider">Coursera</div></div></div>
+        <div class="cert-item glass reveal"><div class="icon-box"><svg class="icon"><use href="#i-award"/></svg></div><div><div class="name">Machine Learning Specialization</div><div class="provider">Coursera</div></div></div>
+        <div class="cert-item glass reveal" data-delay="1"><div class="icon-box"><svg class="icon"><use href="#i-award"/></svg></div><div><div class="name">Advanced English Language</div><div class="provider">Cambridge Training College Britain</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
   <section id="contact" class="contact">
     <div class="container">
-      <div class="contact-inner">
-        <div class="eyebrow reveal">Contact</div>
-        <h2 class="reveal">Let's build something useful.</h2>
-        <p class="reveal">I'm currently interested in junior AI engineering opportunities, internships, and practical AI projects.</p>
-        <div class="contact-actions reveal">
-          <a href="mailto:mohamedsabbahedu@gmail.com" class="btn btn-primary">
-            <svg class="icon" width="16" height="16"><use href="#i-mail"/></svg>
-            Email Me
-          </a>
-          <a href="https://www.linkedin.com/in/mohammed-sabbah-a7688a323/" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
-            <svg class="icon" width="16" height="16"><use href="#i-linkedin"/></svg>
-            LinkedIn
-          </a>
-          <a href="https://github.com/molioace" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
-            <svg class="icon" width="16" height="16"><use href="#i-github"/></svg>
-            GitHub
-          </a>
+      <div class="section-head reveal">
+        <span class="pill">Contact</span>
+        <h2>Let's build something useful</h2>
+        <p>I'm currently interested in junior AI engineering opportunities, internships, and practical AI projects.</p>
+      </div>
+
+      <div class="contact-grid reveal">
+        <div class="contact-info">
+          <p>Have a project, a role, or a system that needs to hold up under real use? Reach out and let's talk about it.</p>
+          <div class="contact-lines">
+            <p><svg class="icon"><use href="#i-mail"/></svg><a href="mailto:mohamedsabbahedu@gmail.com">mohamedsabbahedu@gmail.com</a></p>
+            <p><svg class="icon"><use href="#i-phone"/></svg><a href="tel:+970595716347">+970 595 716 347</a></p>
+            <p><svg class="icon"><use href="#i-globe"/></svg><span>Arabic (Native), English (Advanced)</span></p>
+          </div>
+          <div class="contact-actions">
+            <a href="https://www.linkedin.com/in/mohammed-sabbah-a7688a323/" class="btn btn-outline" target="_blank" rel="noopener noreferrer"><svg class="icon" width="16" height="16"><use href="#i-linkedin"/></svg> LinkedIn</a>
+            <a href="https://github.com/molioace" class="btn btn-outline" target="_blank" rel="noopener noreferrer"><svg class="icon" width="16" height="16"><use href="#i-github"/></svg> View GitHub Profile</a>
+          </div>
         </div>
-        <div class="contact-meta reveal">
-          <span><svg class="icon" width="14" height="14"><use href="#i-phone"/></svg> +970 595 716 347</span>
-          <span><svg class="icon" width="14" height="14"><use href="#i-globe"/></svg> Arabic (Native), English (Advanced)</span>
-        </div>
+
+        <form class="contact-form glass" id="contactForm" novalidate>
+          <div class="field">
+            <label for="cf-name">Name</label>
+            <input id="cf-name" name="name" type="text" placeholder="Your name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="cf-email">Email</label>
+            <input id="cf-email" name="email" type="email" placeholder="your@email.com" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" placeholder="Tell me about your project or role…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" id="cfSubmit"><svg class="icon" width="15" height="15"><use href="#i-send"/></svg> <span>Send Message</span></button>
+        </form>
       </div>
     </div>
   </section>
@@ -532,18 +553,22 @@ Open to junior AI engineering roles<span class="cursor">_</span></code></pre>
 
 <footer>
   <div class="container">
-    <div class="footer-id">
-      <div class="name">Mohammed Sabbah</div>
-      <div class="role">AI Engineer</div>
+    <div class="footer-top">
+      <div class="footer-id">
+        <div class="name">Mohammed Sabbah</div>
+        <div class="role">AI Engineer · Computer Engineering graduate</div>
+      </div>
+      <nav class="footer-links" aria-label="Footer"><a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#contact">Contact</a></nav>
+      <div class="socials">
+        <a href="https://github.com/molioace" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon"><use href="#i-github"/></svg></a>
+        <a href="https://www.linkedin.com/in/mohammed-sabbah-a7688a323/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon"><use href="#i-linkedin"/></svg></a>
+        <a href="mailto:mohamedsabbahedu@gmail.com" aria-label="Email"><svg class="icon"><use href="#i-mail"/></svg></a>
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="https://github.com/molioace" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://www.linkedin.com/in/mohammed-sabbah-a7688a323/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="mailto:mohamedsabbahedu@gmail.com">Email</a>
-    </div>
-    <div class="footer-copy">&copy; <span id="currentYear"></span> Mohammed Sabbah. All rights reserved.</div>
+    <div class="footer-copy"><span>&copy; <span id="currentYear"></span> Mohammed Sabbah. All rights reserved.</span><span class="dwg">DWG: PORTFOLIO / SHEET 1 OF 1</span></div>
   </div>
 </footer>
+</div>
 
 <script src="script.js"></script>
 </body>
