@@ -531,6 +531,7 @@
         </div>
 
         <form class="contact-form glass" id="contactForm" novalidate>
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
           <div class="field">
             <label for="cf-name">Name</label>
             <input id="cf-name" name="name" type="text" placeholder="Your name" autocomplete="name" required>
@@ -544,6 +545,7 @@
             <textarea id="cf-message" name="message" placeholder="Tell me about your project or role…" required></textarea>
           </div>
           <button type="submit" class="btn btn-primary btn-block" id="cfSubmit"><svg class="icon" width="15" height="15"><use href="#i-send"/></svg> <span>Send Message</span></button>
+          <p class="form-status" id="cfStatus" role="status" aria-live="polite"></p>
         </form>
       </div>
     </div>

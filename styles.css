@@ -653,6 +653,12 @@ a.project-thumb:hover .overlay, a.project-thumb:focus-visible .overlay { opacity
 .field input::placeholder, .field textarea::placeholder { color: rgba(255, 255, 255, 0.32); }
 .field input:focus, .field textarea:focus { outline: none; border-color: var(--accent-border); background: rgba(255, 255, 255, 0.07); box-shadow: 0 0 0 3px var(--accent-soft); }
 .contact-form .btn { margin-top: 1.25rem; }
+.contact-form { position: relative; }
+.contact-form .btn:disabled { opacity: 0.7; cursor: progress; }
+.form-status { margin-top: 0.9rem; font-size: 0.875rem; min-height: 1.25rem; text-align: center; }
+.form-status.is-ok { color: #6ee7a8; }
+.form-status.is-err { color: #ff9b9b; }
+.form-status a { color: var(--accent, #5cc8f5); text-decoration: underline; }
 
 /* ==========================================================================
    Footer

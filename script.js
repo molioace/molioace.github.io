@@ -167,20 +167,58 @@ document.addEventListener('DOMContentLoaded', () => {
     follow();
   }
 
-  /* ---------- Contact form (opens the visitor's mail client) ---------- */
+  /* ---------- Contact form (sends via Web3Forms, falls back to mailto) ---------- */
   const form = $('#contactForm');
   if (form) {
+    const WEB3FORMS_KEY = 'd90c3787-54e9-4356-b171-efb5e93e323c';
+    const TO = 'mohamedsabbahedu@gmail.com';
+    const btn = $('#cfSubmit');
     const label = $('#cfSubmit span');
-    form.addEventListener('submit', (e) => {
+    const status = $('#cfStatus');
+    const setStatus = (msg, kind) => {
+      if (!status) return;
+      status.textContent = msg;
+      status.className = 'form-status' + (kind ? ` is-${kind}` : '');
+    };
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (!form.reportValidity()) return;
       const data = new FormData(form);
-      const subject = encodeURIComponent(`Portfolio contact from ${data.get('name')}`);
-      const body = encodeURIComponent(`Name: ${data.get('name')}\nEmail: ${data.get('email')}\n\nMessage:\n${data.get('message')}`);
-      window.location.href = `mailto:mohamedsabbahedu@gmail.com?subject=${subject}&body=${body}`;
-      if (label) {
-        label.textContent = 'Opening your email app…';
-        setTimeout(() => { label.textContent = 'Send Message'; }, 3000);
+      if (data.get('botcheck')) return; // bot
+      const payload = {
+        access_key: WEB3FORMS_KEY,
+        subject: `Portfolio contact from ${data.get('name')}`,
+        from_name: 'Portfolio website',
+        name: data.get('name'),
+        email: data.get('email'),
+        message: data.get('message'),
+      };
+      btn.disabled = true;
+      if (label) label.textContent = 'Sending\u2026';
+      setStatus('');
+      try {
+        if (WEB3FORMS_KEY.startsWith('PASTE_')) throw new Error('Contact form access key is not set yet.');
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok || !json.success) throw new Error(json.message || `Request failed (${res.status})`);
+        form.reset();
+        setStatus('Thanks! Your message was sent. I\u2019ll get back to you soon.', 'ok');
+      } catch (err) {
+        console.error('Contact form error:', err);
+        const subject = encodeURIComponent(payload.subject);
+        const body = encodeURIComponent(`Name: ${payload.name}\nEmail: ${payload.email}\n\nMessage:\n${payload.message}`);
+        setStatus(`Couldn\u2019t send (${err.message}) `, 'err');
+        const a = document.createElement('a');
+        a.href = `mailto:${TO}?subject=${subject}&body=${body}`;
+        a.textContent = 'Email me directly instead';
+        status.appendChild(a);
+      } finally {
+        btn.disabled = false;
+        if (label) label.textContent = 'Send Message';
       }
     });
   }
